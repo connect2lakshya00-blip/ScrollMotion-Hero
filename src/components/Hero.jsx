@@ -309,28 +309,62 @@ export default function Hero() {
         </section>
       </div>
 
-      {/* ── Below-fold content ── */}
+      {/* ── Below-fold content — Bootstrap container/row/col for layout ── */}
       <section
-        className="relative w-full flex flex-col items-center justify-center gap-8 py-40 px-6"
+        className="relative w-full py-40"
         style={{ background: '#050508' }}
       >
-        <div
-          className="w-px h-24 mx-auto"
-          style={{ background: 'linear-gradient(to bottom, #6366f1, transparent)' }}
-        />
-        <h2
-          className="text-center font-black text-white/80 leading-tight"
-          style={{ fontSize: 'clamp(1.8rem, 4vw, 3.5rem)' }}
-        >
-          Built for speed.<br />Designed for impact.
-        </h2>
-        <p
-          className="max-w-lg text-center leading-relaxed"
-          style={{ color: 'rgba(255,255,255,0.35)', fontSize: '1rem' }}
-        >
-          ItzFizz delivers premium experiences at every touchpoint — from first
-          impression to lasting loyalty.
-        </p>
+        {/* Bootstrap container centers and constrains width */}
+        <div className="container">
+          <div className="row justify-content-center text-center">
+            <div className="col-12 col-md-8 col-lg-6 d-flex flex-column align-items-center gap-4">
+              <div
+                className="mx-auto"
+                style={{
+                  width: '1px',
+                  height: '96px',
+                  background: 'linear-gradient(to bottom, #6366f1, transparent)',
+                }}
+              />
+              <h2
+                className="font-black text-white leading-tight"
+                style={{ fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', opacity: 0.85 }}
+              >
+                Built for speed.<br />Designed for impact.
+              </h2>
+              <p
+                className="lead"
+                style={{ color: 'rgba(255,255,255,0.35)', fontSize: '1rem', lineHeight: 1.7 }}
+              >
+                ItzFizz delivers premium experiences at every touchpoint — from first
+                impression to lasting loyalty.
+              </p>
+            </div>
+          </div>
+
+          {/* Bootstrap 3-column feature cards */}
+          <div className="row justify-content-center g-4 mt-5">
+            {[
+              { icon: '⚡', title: 'Lightning Fast', desc: 'Optimised for 60fps scroll performance on all devices.' },
+              { icon: '🎯', title: 'Scroll Driven', desc: 'Every animation is tied directly to scroll progress.' },
+              { icon: '✨', title: 'Premium Feel', desc: 'GSAP-powered motion with smooth easing and depth.' },
+            ].map(({ icon, title, desc }) => (
+              <div key={title} className="col-12 col-sm-6 col-md-4">
+                <div
+                  className="h-100 p-4 rounded-3 text-center"
+                  style={{
+                    background: 'rgba(99,102,241,0.06)',
+                    border: '1px solid rgba(99,102,241,0.15)',
+                  }}
+                >
+                  <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{icon}</div>
+                  <h5 className="fw-bold text-white mb-2">{title}</h5>
+                  <p className="mb-0 small" style={{ color: 'rgba(255,255,255,0.4)' }}>{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     </>
   )

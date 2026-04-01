@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto; /* let GSAP handle scroll */
+}
+
+body {
+  background: #050508;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Prevent FOUC on animated elements */
+.char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.stat-item {
+  will-change: transform, opacity;
+}
+
+.scroll-object {
+  will-change: transform, opacity;
+}
